@@ -3,6 +3,8 @@ import tkinter
 root = tkinter.Tk()
 root.resizable(False, False)
 
+root.geometry("200x250")
+
 v_string = ""
 
 l_string = ""
@@ -268,30 +270,50 @@ if (__name__ == "__main__"):
     b_equal = tkinter.Button(root, text="=",command=b_equal_press)
     b_clear = tkinter.Button(root, text="CE",command=b_clear_press)
 
-    visor.grid(column=3, row=0,padx=10, pady=10)
+    # visor.grid(column=3, row=0,padx=10, pady=10)
+    visor.place(x=0, y=0, height=50, width=200)
+    
+    b_seven.place(x=0, y= 50, height=50, width=50)
+    b_eight.place(x=50, y= 50, height=50, width=50)
+    b_nine.place(x=100, y= 50, height=50, width=50)
+    b_divide.place(x=150, y= 50, height=50, width=50)
 
+    # b_seven.grid(column=1, row=1,padx=10, pady=10)
+    # b_eight.grid(column=2, row=1,padx=10, pady=10)
+    # b_nine.grid(column=3, row=1,padx=10, pady=10)
+    # b_divide.grid(column=4, row=1,padx=10, pady=10)
+    
+    b_four.place(x=0, y= 100, height=50, width=50)
+    b_five.place(x=50, y= 100, height=50, width=50)
+    b_six.place(x=100, y= 100, height=50, width=50)
+    b_multiply.place(x=150, y= 100, height=50, width=50)
 
-    b_seven.grid(column=1, row=1,padx=10, pady=10)
-    b_eight.grid(column=2, row=1,padx=10, pady=10)
-    b_nine.grid(column=3, row=1,padx=10, pady=10)
-    b_divide.grid(column=4, row=1,padx=10, pady=10)
+    # b_four.grid(column=1, row=2,padx=10, pady=10)
+    # b_five.grid(column=2, row=2,padx=10, pady=10)
+    # b_six.grid(column=3, row=2,padx=10, pady=10)
+    # b_multiply.grid(column=4, row=2,padx=10, pady=10)
+    
+    b_one.place(x=0, y= 150, height=50, width=50)
+    b_two.place(x=50, y= 150, height=50, width=50)
+    b_three.place(x=100, y= 150, height=50, width=50)
+    b_minus.place(x=150, y= 150, height=50, width=50)
 
-    b_four.grid(column=1, row=2,padx=10, pady=10)
-    b_five.grid(column=2, row=2,padx=10, pady=10)
-    b_six.grid(column=3, row=2,padx=10, pady=10)
-    b_multiply.grid(column=4, row=2,padx=10, pady=10)
+    # b_one.grid(column=1, row=3,padx=10, pady=10)
+    # b_two.grid(column=2, row=3,padx=10, pady=10)
+    # b_three.grid(column=3, row=3,padx=10, pady=10)
+    # b_minus.grid(column=4, row=3,padx=10, pady=10)
+    
+    b_zero.place(x=0, y= 200, height=50, width=50)
+    b_clear.place(x=50, y= 200, height=50, width=50)
+    b_equal.place(x=100, y= 200, height=50, width=50)
+    b_plus.place(x=150, y= 200, height=50, width=50)
 
-    b_one.grid(column=1, row=3,padx=10, pady=10)
-    b_two.grid(column=2, row=3,padx=10, pady=10)
-    b_three.grid(column=3, row=3,padx=10, pady=10)
-    b_minus.grid(column=4, row=3,padx=10, pady=10)
+    # b_zero.grid(column=1, row=4,padx=10, pady=10)
+    # b_clear.grid(column=2, row=4,padx=10, pady=10)
+    # b_equal.grid(column=3, row=4,padx=10, pady=10)
+    # b_plus.grid(column=4, row=4,padx=10, pady=10)
 
-    b_zero.grid(column=1, row=4,padx=10, pady=10)
-    b_clear.grid(column=2, row=4,padx=10, pady=10)
-    b_equal.grid(column=3, row=4,padx=10, pady=10)
-    b_plus.grid(column=4, row=4,padx=10, pady=10)
-
-    l_visor.grid(column=1, row=5,padx=10, pady=10)
+    # l_visor.grid(column=1, row=5,padx=10, pady=10)
 
     root.title("Calculadora")
     root.mainloop()
