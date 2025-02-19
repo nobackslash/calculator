@@ -1,13 +1,12 @@
 import tkinter
 
+from buttons import Buttons
+from data import Data
+
 root = tkinter.Tk()
 root.resizable(False, False)
 
-root.geometry("200x250")
-
-v_string = ""
-
-l_string = ""
+root.geometry("200x270")
 
 # dicionário para deixar a string lógica mais bonita.
 # eu sei que eu poderia colocar diretamente os símbolos, mas quis dar
@@ -21,193 +20,63 @@ operations = {
     'eq':'='
 }
 
-def refresh_entry():
-    visor.configure(state="normal")
-    visor.delete(0, 'end')
-    visor.insert(0, v_string)
-    visor.configure(state="disabled")
+class Config:
+    def refresh_entry():
+        visor.configure(state="normal")
+        visor.delete(0, 'end')
+        visor.insert(0, Data.v_string)
+        visor.configure(state="disabled")
+    
+# botões removidos e colocados na button.py
     
 def res_entry(result):
     visor.configure(state="normal")
     visor.delete(0, 'end')
     visor.insert(0, result)
     visor.configure(state="disabled")
-
-#função de todos os botões
-
-def b_one_press():
-    logic_value = "1"
-    global v_string
-    global l_string
-    v_string += "1"
-    l_string += logic_value
-    refresh_entry()
-    l_visor.config(text=l_string)
-    print("updated")
-    
-def b_two_press():
-    logic_value = "2"
-    global l_string
-    global v_string 
-    v_string += "2"
-    l_string += logic_value
-    refresh_entry()
-    l_visor.config(text=l_string)
-    
-    print("updated")
-
-def b_three_press():
-    logic_value = "3"
-    global l_string
-    global v_string 
-    v_string += "3"
-    l_string += logic_value
-    refresh_entry()
-    l_visor.config(text=l_string)
-    
-    print("updated")
-    
-def b_four_press():
-    logic_value = "4"
-    global l_string
-    global v_string 
-    v_string += "4"
-    l_string += logic_value
-    refresh_entry()
-    l_visor.config(text=l_string)
-    
-    print("updated")
-    
-def b_five_press():
-    logic_value = "5"
-    global l_string
-    global v_string 
-    v_string += "5"
-    l_string += logic_value
-    refresh_entry()
-    l_visor.config(text=l_string)
-    
-    print("updated")
-    
-def b_six_press():
-    logic_value = "6"
-    global l_string
-    global v_string 
-    v_string += "6"
-    l_string += logic_value
-    refresh_entry()
-    l_visor.config(text=l_string)
-    
-    print("updated")
-    
-def b_seven_press():
-    logic_value = "7"
-    global l_string
-    global v_string 
-    v_string += "7"
-    l_string += logic_value
-    refresh_entry()
-    l_visor.config(text=l_string)
-    
-    print("updated")
-    
-def b_eight_press():
-    logic_value = "8"
-    global l_string
-    global v_string 
-    v_string += "8"
-    l_string += logic_value
-    refresh_entry()
-    l_visor.config(text=l_string)
-    
-    print("updated")
-    
-def b_nine_press():
-    logic_value = "9"
-    global l_string
-    global v_string 
-    v_string += "9"
-    l_string += logic_value
-    refresh_entry()
-    l_visor.config(text=l_string)
-    
-    print("updated")
-    
-def b_zero_press():
-    logic_value = "0"
-    global l_string
-    global v_string 
-    v_string += "0"
-    l_string += logic_value
-    refresh_entry()
-    l_visor.config(text=l_string)
-    
-    print("updated")
     
 def b_plus_press():
     logic_value = "$pl$"
-    global l_string
-    global v_string 
-    v_string += "+"
-    l_string += logic_value
-    refresh_entry()
-    l_visor.config(text=l_string)
-    
-    print("updated")
+    Data.v_string += "+"
+    Data.l_string += logic_value
+    Config.refresh_entry()
+    l_visor.config(text=Data.l_string)
     
 def b_minus_press():
     logic_value = "$mi$"
-    global l_string
-    global v_string 
-    v_string += "-"
-    l_string += logic_value
-    refresh_entry()
-    l_visor.config(text=l_string)
-    
-    print("updated")
+    Data.v_string += "-"
+    Data.l_string += logic_value
+    Config.refresh_entry()
+    l_visor.config(text=Data.l_string)
     
 def b_multiply_press():
     logic_value = "$mu$"
-    global l_string
-    global v_string 
-    v_string += "*"
-    l_string += logic_value
-    refresh_entry()
-    l_visor.config(text=l_string)
-    
-    print("updated")
-    
+    Data.v_string += "*"
+    Data.l_string += logic_value
+    Config.refresh_entry()
+    l_visor.config(text=Data.l_string)
+
 def b_divide_press():
     logic_value = "$di$"
-    global l_string
-    global v_string 
-    v_string += "/"
-    l_string += logic_value
-    refresh_entry()
-    l_visor.config(text=l_string)
-    
-    print("updated")
+    Data.v_string += "/"
+    Data.l_string += logic_value
+    Config.refresh_entry()
+    l_visor.config(text=Data.l_string)
     
 def b_equal_press():
-    logic_value = "$eq"
-    global l_string
-    global v_string 
-    v_string = ""
-    l_string += logic_value
-    res = calc(l_string)
+    logic_value = "$eq" 
+    Data.v_string = ""
+    Data.l_string += logic_value
+    res = calc(Data.l_string)
     res_entry(result=res)
     l_visor.config(text=res)
-    
-    print("updated")
-    
+
 def b_clear_press():
-    global v_string 
-    global l_string
-    v_string = ""
-    l_string = ""
-    refresh_entry()
-    l_visor.config(text=l_string)
-    print("updated")
+    
+    Data.v_string = ""
+    Data.l_string = ""
+    Config.refresh_entry()
+    l_visor.config(text=Data.l_string)
     
 def calc(l_string):
     operators_done = 0
@@ -250,19 +119,20 @@ def calc(l_string):
     
 if (__name__ == "__main__"):
     
-    visor = tkinter.Entry(root, text=v_string, state="disabled")
-    l_visor = tkinter.Label(root, text=l_string)
+    visor = tkinter.Entry(root, text=Data.v_string, state="disabled")
+    l_visor = tkinter.Label(root, text=Data.l_string)
 
-    b_one = tkinter.Button(root, text="1",command=b_one_press)
-    b_two = tkinter.Button(root, text="2",command=b_two_press)
-    b_three = tkinter.Button(root, text="3",command=b_three_press)
-    b_four = tkinter.Button(root, text="4",command=b_four_press)
-    b_five = tkinter.Button(root, text="5",command=b_five_press)
-    b_six = tkinter.Button(root, text="6",command=b_six_press)
-    b_seven = tkinter.Button(root, text="7",command=b_seven_press)
-    b_eight = tkinter.Button(root, text="8",command=b_eight_press)
-    b_nine = tkinter.Button(root, text="9",command=b_nine_press)
-    b_zero = tkinter.Button(root, text="0",command=b_zero_press)
+    # o lambda me deixa passar a função dentro da função. por algum motivo, sem o lambda o programa EXPLODE
+    b_one = tkinter.Button(root, text="1",command=lambda: Buttons.b_one_press(Config.refresh_entry))
+    b_two = tkinter.Button(root, text="2",command=lambda: Buttons.b_two_press(Config.refresh_entry))
+    b_three = tkinter.Button(root, text="3",command=lambda: Buttons.b_three_press(Config.refresh_entry))
+    b_four = tkinter.Button(root, text="4",command=lambda: Buttons.b_four_press(Config.refresh_entry))
+    b_five = tkinter.Button(root, text="5",command=lambda: Buttons.b_five_press(Config.refresh_entry))
+    b_six = tkinter.Button(root, text="6",command=lambda: Buttons.b_six_press(Config.refresh_entry))
+    b_seven = tkinter.Button(root, text="7",command=lambda: Buttons.b_seven_press(Config.refresh_entry))
+    b_eight = tkinter.Button(root, text="8",command=lambda: Buttons.b_eight_press(Config.refresh_entry))
+    b_nine = tkinter.Button(root, text="9",command=lambda: Buttons.b_nine_press(Config.refresh_entry))
+    b_zero = tkinter.Button(root, text="0",command=lambda: Buttons.b_zero_press(Config.refresh_entry))
     b_divide = tkinter.Button(root, text="/",command=b_divide_press)
     b_multiply = tkinter.Button(root, text="*",command=b_multiply_press)
     b_minus = tkinter.Button(root, text="-",command=b_minus_press)
